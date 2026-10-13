@@ -95,6 +95,12 @@ That exception is in the benchmark fixture, not install/build/start or server co
 The generator approximates the think-time loop and is not k6. The 300,000-user
 prototype without memory-aware acceptance was OOM-killed and did not pass.
 
+The final source also passed unmodified `bench/load.js` with k6 2.3.0 at 10,000
+users: 1,000-user/2-minute warm-up, 60 s ramp, 300 s hold, 30 s ramp-down,
+default client GC and original host settings (the NOTRACK exception removed).
+373,460 requests, zero errors, p95 0.416 ms, p99 1.34 ms, maximum 67.27 ms.
+This is a passing confirmation point, not a searched maximum or official rank.
+
 ## Credits and license
 
 Database/JSON/JWT work derives from maks-march's
